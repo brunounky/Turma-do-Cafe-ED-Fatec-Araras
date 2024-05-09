@@ -12,9 +12,10 @@ int main(int argc, char** argv) {
 	
 	cout << "___________ Turma do Cafe - Fatec Araras ___________" << endl;
 	
-	cout << "Digite a opção desejada: " << endl;
+	cout << "Digite a opcao desejada: " << endl;
 	cout << "1 - Inserir um novo contribuente" << endl;
 	cout << "2 - Editar dados de um contribuente já cadastrado" << endl;
+	cout << "3 - Visualizar"
 	
 	
 	return 0;
