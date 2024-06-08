@@ -35,10 +35,10 @@ void cadastroAluno(){
 	cout << "Informe o ano de inicio na Fatec: " << endl;
 	cin >> newAluno.anoInicio;
 	cout << "Informe o curso da Fatec (DSM ; SI ; GE): " << endl;
-	cin >> newAluno.nome;
+	cin >> newAluno.curso;
 	
 	
-	cout << "Id atual" << newAluno.id << endl;
+	cout << "Id atual" << newAluno.curso[] << endl;
 	
 }
 
