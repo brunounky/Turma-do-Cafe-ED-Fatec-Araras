@@ -28,8 +28,14 @@ void cadastroAluno(){
 	
 	aluno newAluno;
 	newAluno.id = idAtt++; //Soma mais um ao id
-//	cout << "Informe o primeiro nome do Aluno: " << endl;
-//	cin >> newAluno.nome;
+	cout << "Informe o primeiro nome do Aluno: " << endl;
+	cin >> newAluno.nome;
+	cout << "Informe o semestre de inicio na Fatec: " << endl;
+	cin >> newAluno.semestreInicio;
+	cout << "Informe o ano de inicio na Fatec: " << endl;
+	cin >> newAluno.anoInicio;
+	cout << "Informe o curso da Fatec (DSM ; SI ; GE): " << endl;
+	cin >> newAluno.nome;
 	
 	
 	cout << "Id atual" << newAluno.id << endl;
