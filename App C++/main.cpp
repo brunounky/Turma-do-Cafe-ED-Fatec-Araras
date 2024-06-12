@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <locale>
 #include <cstring>
+#include <queue> //Biblioteca que me permite criar a lista 
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
@@ -24,6 +25,9 @@ struct contribuinte {
     float valor;
 };
 
+queue<aluno> newAluno;
+queue<contribuinte> newContribuintes;
+
 void cadastroAluno(){
 	
 	aluno newAluno;
@@ -38,7 +42,7 @@ void cadastroAluno(){
 	cin >> newAluno.curso;
 	
 	
-	cout << "Id atual" << newAluno.curso[] << endl;
+	cout << "Id atual" << newAluno.id << endl;
 	
 }
 
