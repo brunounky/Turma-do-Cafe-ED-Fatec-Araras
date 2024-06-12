@@ -1,8 +1,10 @@
+// Projeto desenvolvido por Bruno Campagnol de Oliveira
+// Estrutura de Dados - Orlando - Fatec Araras 2024
+
 #include <iostream>
 #include <stdlib.h>
 #include <locale>
 #include <cstring>
-#include <queue> //Biblioteca que me permite criar a lista 
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
@@ -16,6 +18,7 @@ struct aluno {
     int semestreInicio;
     int anoInicio;
     string curso;
+    int *ptrAluno;
 };
 
 struct contribuinte {
@@ -23,12 +26,11 @@ struct contribuinte {
     int mes;
     int ano;
     float valor;
+    int *ptrContribuente;
 };
 
-queue<aluno> newAluno;
-queue<contribuinte> newContribuintes;
 
-void cadastroAluno(){
+void cadastroAluno(){ // Opção 1 do MENU principal
 	
 	aluno newAluno;
 	newAluno.id = idAtt++; //Soma mais um ao id
@@ -42,8 +44,13 @@ void cadastroAluno(){
 	cin >> newAluno.curso;
 	
 	
-	cout << "Id atual" << newAluno.id << endl;
+	cout << "!!Aluno novo foi cadastrado. Use novamente as opções do menu!!" << endl;
 	
+}
+
+void exportarTXTalunos(){ // Opção 4 no MENU
+	
+	cout << "Teste para ver se vem do menu pra ca" << endl;
 }
 
 //Inicio do programa tem que vir aqui
@@ -55,9 +62,12 @@ void menu(){
 		cout << "___________ Turma do Cafe - Fatec Araras ___________" << endl;
 		cout << endl;
 		cout << "Digite a opcao desejada: " << endl;
+		cout << "___________________ ALUNOS ___________________" << endl;
 		cout << "1 - Inserir um novo aluno" << endl;
 		cout << "2 - Editar dados de um contribuente já cadastrado" << endl;
-		cout << "3 - Visualizar" << endl;;
+		cout << "3 - Importar TXT com os dados dos alunos" << endl;
+		cout << "4 - Exportar TXT com os dados dos alunos" << endl;
+		cout << "________________ CONTRIBUENTES _______________" << endl;
 		cout << "4 - Cadastrar contribuicao" << endl;
 		cout << "0 - Para finalizar o programa" << endl << endl;
 		cin >> opMenu;
@@ -66,8 +76,13 @@ void menu(){
 			case 1:
 				cadastroAluno();
 				break;
+			case 4:
+				exportarTXTalunos();
 			case 0:
-				cout << "Programa finalizado";
+				cout << "Programa finalizado" << endl;;
+				break;
+			default:
+				cout << "Informe uma opção válida dentre as possibilidades" << endl;
 				break;
 	}
 		
