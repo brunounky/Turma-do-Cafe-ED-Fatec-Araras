@@ -17,7 +17,7 @@ struct aluno { //dados aluno
 aluno* newAluno = 0; // ponteiro 
 int contAluno = 0; // inicia o contador como zero
 
-void cadastroAluno() {
+void cadastroAluno(){
 
     aluno* temp = new aluno[contAluno + 1]; //array temporario
 		
@@ -42,7 +42,17 @@ void cadastroAluno() {
 	cout << "!!Aluno novo foi cadastrado. Use novamente as opções do menu!!" << endl;
 }
 
-void mostrarAlunos() {
+void editaAluno(){
+	
+	if (contAluno == 0){
+		cout << "Nenhum aluno está cadastrado" << endl;
+	}else{
+		cout << "Achouu" << endl;
+	}
+	
+}
+
+void mostrarAlunos(){
     if (contAluno == 0) {
         cout << "Nenhum aluno cadastrado." << endl;
         return;
@@ -59,7 +69,7 @@ void mostrarAlunos() {
     }
 }
 
-void exportarTXTalunos() {
+void exportarTXTalunos(){
     FILE* outFile = fopen("alunosCadastrados.txt", "w"); //nome do arquivo que sera criado
 
     if (!outFile) {
@@ -69,7 +79,7 @@ void exportarTXTalunos() {
 
     fprintf(outFile, "Lista de Alunos Cadastrados:\n");
     fprintf(outFile, ".\n");
-    fprintf(outFile, ".:\n");
+    fprintf(outFile, ".\n");
 
     for (int i = 0; i < contAluno; ++i) {
         fprintf(outFile, "ID: %d\n", newAluno[i].id);
@@ -85,7 +95,7 @@ void exportarTXTalunos() {
 }
 
 
-void menu() {
+void menu(){
     int opMenu;
 
     do {
@@ -106,10 +116,12 @@ void menu() {
         cout << "0 - Para finalizar o programa" << endl << endl;
         cin >> opMenu;
 		
-        switch(opMenu) {
+        switch(opMenu){
             case 1:
                 cadastroAluno();
                 break;
+            case 2:
+            	editaAluno();
             case 4:
                 exportarTXTalunos();
                 break;
@@ -127,7 +139,7 @@ void menu() {
     } while (opMenu != 0);
 }
 
-int main() {
+int main(){
     setlocale(LC_ALL, "Portuguese");
     
     cout << "DEV Bruno Campagnol de Oliveira" << endl;
