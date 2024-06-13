@@ -1,0 +1,21 @@
+Lista de Alunos Cadastrados:
+.
+.:
+ID: 13238608
+Nome: 1
+Semestre de Início: 1
+Ano de Início: 1
+Curso: 1
+-----------------------------
+ID: 0
+Nome: 1
+Semestre de Início: 1
+Ano de Início: 1
+Curso: 1
+-----------------------------
+ID: 0
+Nome: 2
+Semestre de Início: 2
+Ano de Início: 2
+Curso: 2
+-----------------------------
