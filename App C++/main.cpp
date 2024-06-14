@@ -157,7 +157,7 @@ void menu(){
             case 0:
                 cout << "Programa finalizado" << endl;
                 break;
-            default:
+            default://verificar por que numero nao vai e lebra trava
                 cout << "Informe uma opção válida dentre as possibilidades" << endl;
                 break;
         }
