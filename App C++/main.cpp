@@ -95,6 +95,10 @@ void mostrarAlunos(){
     }
 }
 
+void importarTXTalunos(){
+	cout << "entrou na parte de importar" << endl;
+}
+
 void exportarTXTalunos(){
     FILE* outFile = fopen("alunosCadastrados.txt", "w"); //nome do arquivo que sera criado
 
@@ -148,6 +152,10 @@ void menu(){
                 break;
             case 2:
             	editaAluno();
+            	break;
+            case 3:
+            	importarTXTalunos();
+            	break;
             case 4:
                 exportarTXTalunos();
                 break;

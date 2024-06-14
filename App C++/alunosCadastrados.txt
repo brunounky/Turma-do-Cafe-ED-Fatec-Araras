@@ -1,9 +1,3 @@
 Lista de Alunos Cadastrados:
 .
 .
-ID: 22
-Nome: 2
-Semestre de Início: 2
-Ano de Início: 2
-Curso: 2
------------------------------
