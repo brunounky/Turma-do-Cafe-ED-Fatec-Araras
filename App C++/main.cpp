@@ -18,10 +18,11 @@ aluno* newAluno = 0; // ponteiro
 int contAluno = 0; // inicia o contador como zero
 
 void cadastroAluno(){
-
-    aluno* temp = new aluno[contAluno + 1]; //array temporario
+	
+	aluno* temp = new aluno[contAluno + 1]; //array temporario
 		
-	cout << "ID do novo aluno: " << contAluno << endl;
+	cout << "Informe o ID do aluno" << endl;
+	cin >> temp[contAluno].id;
 	cout << "Informe o primeiro nome do Aluno: " << endl;
 	cin >> temp[contAluno].nome;
 	cout << "Informe o semestre de inicio na Fatec: " << endl;
@@ -35,21 +36,46 @@ void cadastroAluno(){
         temp[i] = newAluno[i];
     }
     
-    delete[] newAluno; // Liberando a memória do array antigo
-    newAluno = temp;   // Atualizando para apontar para o novo array
-    contAluno++;       // Incrementando o contador de alunos
+    delete[] newAluno; // memoria limpa
+    newAluno = temp; 
+    contAluno++; // verificar se nao esta somando 2 numeros
 
 	cout << "!!Aluno novo foi cadastrado. Use novamente as opções do menu!!" << endl;
 }
 
-void editaAluno(){
-	
-	if (contAluno == 0){
-		cout << "Nenhum aluno está cadastrado" << endl;
-	}else{
-		cout << "Achouu" << endl;
-	}
-	
+void editaAluno() {
+    if (contAluno == 0) {
+        cout << "Nao há alunos cadastrados" << endl;
+        return;
+    }
+
+    int id;
+    cout << "Digite o ID do aluno cadastrado para ser editado: " << endl;
+    cin >> id;
+
+    for (int i = 0; i < contAluno; ++i) {
+        if (newAluno[i].id == id) {
+            cout << "ID do aluno: " << id << endl;
+            cout << "Nome atual: " << newAluno[i].nome << endl;
+            cout << "Informe a alteracoo: " << endl;
+            cin >> newAluno[i].nome;
+            cout << "Semestre de início atual: " << newAluno[i].semestreInicio << endl;
+            cout << "Informe a alteração do semestre: " << endl;
+            cin >> newAluno[i].semestreInicio;
+            cout << "Ano de início atual: " << newAluno[i].anoInicio << endl;
+            cout << "Informe a alteracao do ano: " << endl;
+            cin >> newAluno[i].anoInicio;
+            cout << "Curso atual: " << newAluno[i].curso << endl;
+            cout << "Informe a alteracao do curso (DSM - Si - GE): " << endl;
+            cin >> newAluno[i].curso;
+            cout << "AS INFORMACOES FORAM ALTERADAS!!" << endl;
+            
+            return;
+            
+        }else{
+        	cout << "Aluno informado nao foi encontrado" << endl;
+		}
+    }
 }
 
 void mostrarAlunos(){
