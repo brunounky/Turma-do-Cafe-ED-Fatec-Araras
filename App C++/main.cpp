@@ -53,13 +53,6 @@ void cadastroAluno(){
 	cout << "!!Aluno novo foi cadastrado. Use novamente as opções do menu!!" << endl;
 }
 
-
-
-
-
-
-
-
 void cadastroContribuicao(){
     if (contAluno == 0){
         cout << "Nao há alunos cadastrados para poder inserir uma contribuiçao!!!" << endl;
@@ -110,17 +103,6 @@ void cadastroContribuicao(){
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
 void editaAluno() {
     if (contAluno == 0) {
         cout << "Nao há alunos cadastrados" << endl;
@@ -158,7 +140,7 @@ void editaAluno() {
 
 void mostrarAlunos(){
     if (contAluno == 0) {
-        cout << "Nenhum aluno cadastrado." << endl;
+        cout << "Nenhum aluno cadastrado" << endl;
         return;
     }
 
@@ -170,6 +152,22 @@ void mostrarAlunos(){
         cout << "Semestre de Inicio: " << newAluno[i].semestreInicio << endl;
         cout << "Ano de Inicio: " << newAluno[i].anoInicio << endl;
         cout << "Curso: " << newAluno[i].curso << endl;
+    }
+}
+
+void mostrarContribuicao(){
+    if (contContribuinte == 0) {
+        cout << "Nenhuma contribuição cadastrada" << endl;
+        return;
+    }
+
+    cout << "______ Lista de Contribuicoes ______" << endl;
+    
+    for (int i = 0; i < contContribuinte; ++i) {
+        cout << "ID do Aluno: " << newContribuinte[i].id << endl;
+        cout << "Mes: " << newContribuinte[i].mes << endl;
+        cout << "Ano: " << newContribuinte[i].ano << endl;
+        cout << "Valor: R$ " << newContribuinte[i].valor << endl;
     }
 }
 
@@ -199,7 +197,7 @@ void exportarTXTalunos(){
     }
 
     fclose(outFile);
-    cout << "Dados dos alunos exportados para 'alunosCadastrados.txt' com sucesso!!!." << endl;
+    cout << "Dados dos alunos exportados para 'alunosCadastrados.txt' com sucesso!!!" << endl;
 }
 
 
@@ -207,7 +205,7 @@ void menu(){
     int opMenu;
 
     do {
-        cout << "________ Turma do Cafe - Fatec Araras ________" << endl;
+        cout << endl << "________ Turma do Cafe - Fatec Araras ________" << endl;
         cout << endl;
         cout << "Digite a opcao desejada: " << endl << endl;;
         cout << "___________________ ALUNOS ___________________" << endl;
@@ -243,6 +241,9 @@ void menu(){
             case 6:
             	cadastroContribuicao();
             	break;
+            case 9:
+            	mostrarContribuicao();
+            	break;
             case 0:
                 cout << "Programa finalizado" << endl;
                 break;
@@ -252,8 +253,6 @@ void menu(){
         }
 		
     } while (opMenu != 0);
-    
-    system("cls");
 }
 
 int main(){
