@@ -41,8 +41,16 @@ void cadastroAluno(){
 	cin >> temp[contAluno].semestreInicio;
 	cout << "Informe o ano de inicio na Fatec: " << endl;
 	cin >> temp[contAluno].anoInicio;
-	cout << "Informe o curso da Fatec (DSM ; SI ; GE): " << endl;
-	cin >> temp[contAluno].curso;
+	
+	while (true) {
+		cout << "Informe o curso da Fatec (DSM ; SI ; GE): " << endl;
+		cin >> temp[contAluno].curso;
+		if (temp[contAluno].curso == "dsm" || temp[contAluno].curso == "si" || temp[contAluno].curso == "ge") {
+        	break;
+    	} else {
+        	    cout << "Curso inválido. Por favor, informe DSM, SI ou GE." << endl;
+    	}
+	}
 	
     for (int i = 0; i < contAluno; ++i) { //gravação do array temp no principal
         temp[i] = newAluno[i];
@@ -75,8 +83,7 @@ void cadastroContribuicao(){
 	    while (true) {
 	        cout << "Informe o número do mês da contribuição(1 a 12): ";
 	        cin >> temp[contContribuinte].mes;
-	        if (temp[contContribuinte].mes >= 1 && temp[contContribuinte].mes <= 12) {
-	            break; // Saindo do loop se o mês for válido
+	        if (temp[contContribuinte].mes >= 1 && temp[contContribuinte].mes <= 12){
 	        } else {
 	            cout << "Mes invalido. Por favor, informe um mes entre 1 e 12" << endl;
 	        }
@@ -85,8 +92,7 @@ void cadastroContribuicao(){
 	    while (true) {
 	        cout << "Informe o ano da contribuição(igual ou maior que 2024): ";
 	        cin >> temp[contContribuinte].ano;
-	        if (temp[contContribuinte].ano >= 2024) {
-	            break; // Saindo do loop se o ano for válido
+	        if (temp[contContribuinte].ano >= 2024){
 	        } else {
 	            cout << "Ano invalido. Por favor, informe um ano igual ou maior que 2024" << endl;
 	        }
