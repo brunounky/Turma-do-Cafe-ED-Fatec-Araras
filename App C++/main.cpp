@@ -1,6 +1,5 @@
 #include <iostream>
 #include <locale>
-#include <cstring>
 #include <stdio.h>
 
 using namespace std;
@@ -366,5 +365,6 @@ int main(){
     
     menu();
     delete[] newAluno; //fazer teste depois para ver se esta limpa a memoria
+    delete[] newContribuinte;
     return 0;
 }
