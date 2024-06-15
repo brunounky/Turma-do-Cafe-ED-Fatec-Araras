@@ -33,7 +33,7 @@ void cadastroAluno(){
 	
 	aluno* temp = new aluno[contAluno + 1]; //array temporario
 		
-	cout << "Informe o ID do aluno" << endl;
+	cout << "Informe o ID do aluno(recomendo o RA): " << endl;
 	cin >> temp[contAluno].id;
 	cout << "Informe o primeiro nome do Aluno: " << endl;
 	cin >> temp[contAluno].nome;
@@ -62,7 +62,9 @@ void cadastroAluno(){
 
 	cout << "!!Aluno novo foi cadastrado. Use novamente as opções do menu!!" << endl;
 }
-			// na hora de por o id chama a funcao e retorna true se der certo (id)
+
+// colocar la em cima para nao falar que nao esta declado
+// na hora de por o id chama a funcao e retorna true se der certo (id)
 bool verificaId(int id){
 	for (int i = 0; i < contAluno; ++i) {
     if (newAluno[i].id == id) {
