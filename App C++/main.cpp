@@ -62,6 +62,15 @@ void cadastroAluno(){
 
 	cout << "!!Aluno novo foi cadastrado. Use novamente as opções do menu!!" << endl;
 }
+			// na hora de por o id chama a funcao e retorna true se der certo (id)
+bool verificaId(int id){
+	for (int i = 0; i < contAluno; ++i) {
+    if (newAluno[i].id == id) {
+	       return true;
+	    }
+	}
+	return false;
+}
 
 void cadastroContribuicao(){
 	
@@ -75,10 +84,18 @@ void cadastroContribuicao(){
     
 	    temp[contContribuinte].id = contContribuinte + 1;
 	    int id; //tentar usar o int id iguyal fiz pra editar
-	    
-	    cout << "Informe o ID do aluno para a contribuiçao: ";
-	    cin >> id;
-	    temp[contContribuinte].id = id;
+	
+	    while (true) {
+	        cout << "Informe o ID do aluno para a contribuiçao: ";
+	        cin >> id;
+	
+	        if (verificaId(id)) {//retorno da funcao
+	            temp[contContribuinte].id = id;
+	            break;
+	        } else {
+	            cout << "ID nao existe entre os cadastrados, informe novamente um ID: " << endl;
+	        }
+	    }
 	    
 	    while (true) {
 	        cout << "Informe o número do mês da contribuição(1 a 12): ";
@@ -280,9 +297,7 @@ void exportarTXTcurso(){
     fclose(outFile);
     cout << "Dados dos contribuintes" << curso << " exportados com sucesso!!!" << endl;
 }
-
-
-
+	
 void menu(){
     int opMenu;
 
