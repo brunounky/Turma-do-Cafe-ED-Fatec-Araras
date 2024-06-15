@@ -212,7 +212,7 @@ void mostrarContribuicao(){
 }
 
 void importarTXTalunos(){
-	cout << "entrou na parte de importar" << endl;
+	cout << "entrou na parte de importar que eu nao entendiiiiiiii" << endl;
 }
 
 void exportarTXTalunos(){
