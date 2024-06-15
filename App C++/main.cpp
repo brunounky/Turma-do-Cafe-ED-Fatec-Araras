@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 struct aluno { //dados aluno
     int id;
     string nome;
