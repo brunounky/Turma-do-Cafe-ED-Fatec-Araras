@@ -179,7 +179,7 @@ void exportarTXTalunos(){
     FILE* outFile = fopen("alunosCadastrados.txt", "w"); //nome do arquivo que sera criado
 
     if (!outFile) {
-        cout << "Erro ao abrir o arquivo de saída." << endl;
+        cout << "Erro ao abrir o arquivo de saida" << endl;
         return;
     }
 
@@ -193,11 +193,35 @@ void exportarTXTalunos(){
         fprintf(outFile, "Semestre de Início: %d\n", newAluno[i].semestreInicio);
         fprintf(outFile, "Ano de Início: %d\n", newAluno[i].anoInicio);
         fprintf(outFile, "Curso: %s\n", newAluno[i].curso.c_str());
-        fprintf(outFile, "-----------------------------\n");
+        fprintf(outFile, "____________________\n");
     }
 
     fclose(outFile);
     cout << "Dados dos alunos exportados para 'alunosCadastrados.txt' com sucesso!!!" << endl;
+}
+
+void exportarTXTcontribuintes(){
+    FILE* outFile = fopen("contribuintesCadastrados.txt", "w");
+
+    if (!outFile) {
+        cout << "Erro ao abrir o arquivo de saida" << endl;
+        return;
+    }
+
+    fprintf(outFile, "Lista de Contribuintes Cadastrados:\n");
+    fprintf(outFile, ".\n");
+    fprintf(outFile, ".\n");
+
+    for (int i = 0; i < contContribuinte; ++i) {
+        fprintf(outFile, "ID do Aluno: %d\n", newContribuinte[i].id);
+        fprintf(outFile, "Mês: %d\n", newContribuinte[i].mes);
+        fprintf(outFile, "Ano: %d\n", newContribuinte[i].ano);
+        fprintf(outFile, "Valor: R$ %.2f\n", newContribuinte[i].valor);
+        fprintf(outFile, "____________________\n");
+    }
+
+    fclose(outFile);
+    cout << "Dados dos contribuintes exportados para 'contribuintesCadastrados.txt' com sucesso!!!" << endl;
 }
 
 
@@ -210,7 +234,7 @@ void menu(){
         cout << "Digite a opcao desejada: " << endl << endl;;
         cout << "___________________ ALUNOS ___________________" << endl;
         cout << "1 - Inserir um novo aluno" << endl;
-        cout << "2 - Editar dados de um contribuente já cadastrado" << endl;
+        cout << "2 - Editar dados de um contribuente ja cadastrado" << endl;
         cout << "3 - Importar TXT com os dados dos alunos" << endl;
         cout << "4 - Exportar TXT com os dados dos alunos" << endl;
         cout << "5 - Mostrar todos os alunos cadastrados" << endl << endl;
@@ -240,6 +264,12 @@ void menu(){
                 break;
             case 6:
             	cadastroContribuicao();
+            	break;
+            case 7:
+            	exportarTXTcontribuintes();
+            	break;
+            case 8:
+            	//conectar com a fincao
             	break;
             case 9:
             	mostrarContribuicao();
