@@ -29,6 +29,8 @@ int contContribuinte = 0;
 
 void cadastroAluno(){
 	
+	system("cls");
+	
 	aluno* temp = new aluno[contAluno + 1]; //array temporario
 		
 	cout << "Informe o ID do aluno" << endl;
@@ -54,6 +56,9 @@ void cadastroAluno(){
 }
 
 void cadastroContribuicao(){
+	
+	system("cls");
+	
     if (contAluno == 0){
         cout << "Nao há alunos cadastrados para poder inserir uma contribuiçao!!!" << endl;
     }else{
@@ -104,6 +109,9 @@ void cadastroContribuicao(){
 }
 
 void editaAluno() {
+	
+	system("cls");
+	
     if (contAluno == 0) {
         cout << "Nao há alunos cadastrados" << endl;
         return;
@@ -139,6 +147,9 @@ void editaAluno() {
 }
 
 void mostrarAlunos(){
+	
+	system("cls");
+	
     if (contAluno == 0) {
         cout << "Nenhum aluno cadastrado" << endl;
         return;
@@ -156,6 +167,9 @@ void mostrarAlunos(){
 }
 
 void mostrarContribuicao(){
+	
+	system("cls");
+	
     if (contContribuinte == 0) {
         cout << "Nenhuma contribuição cadastrada" << endl;
         return;
@@ -176,6 +190,9 @@ void importarTXTalunos(){
 }
 
 void exportarTXTalunos(){
+	
+	system("cls");
+	
     FILE* outFile = fopen("alunosCadastrados.txt", "w"); //nome do arquivo que sera criado
 
     if (!outFile) {
@@ -201,6 +218,9 @@ void exportarTXTalunos(){
 }
 
 void exportarTXTcontribuintes(){
+	
+	system("cls");
+	
     FILE* outFile = fopen("contribuintesCadastrados.txt", "w");
 
     if (!outFile) {
@@ -224,11 +244,45 @@ void exportarTXTcontribuintes(){
     cout << "Dados dos contribuintes exportados para 'contribuintesCadastrados.txt' com sucesso!!!" << endl;
 }
 
+void exportarTXTcurso(){
+	
+	system("cls");
+	
+    string curso;
+    cout << "Informe o curso que deseja exportar(DSM - GE - SI): ";
+    cin >> curso;
+
+    FILE* outFile = fopen((curso + "_contribuintes.txt").c_str(), "w"); //testar nomo inicial para ver se vai
+
+    if (!outFile){
+        cout << "Erro ao abrir o arquivo de saida" << endl;
+        return;
+    }
+
+    fprintf(outFile, "Lista de Contribuintes por curso: \n");
+    
+    for (int i = 0; i < contContribuinte; ++i){
+        if (newContribuinte[i].id <= contAluno && newAluno[newContribuinte[i].id - 1].curso == curso){ //
+            fprintf(outFile, "ID do Aluno: %d\n", newContribuinte[i].id);
+            fprintf(outFile, "Mês: %d\n", newContribuinte[i].mes);
+            fprintf(outFile, "Ano: %d\n", newContribuinte[i].ano);
+            fprintf(outFile, "Valor: R$ %.2f\n", newContribuinte[i].valor);
+      		 fprintf(outFile, "____________________\n");
+        }
+    }
+
+    fclose(outFile);
+    cout << "Dados dos contribuintes" << curso << " exportados com sucesso!!!" << endl;
+}
+
+
 
 void menu(){
     int opMenu;
 
     do {
+    	cout << endl << "DEV Bruno Campagnol de Oliveira" << endl;
+    	
         cout << endl << "________ Turma do Cafe - Fatec Araras ________" << endl;
         cout << endl;
         cout << "Digite a opcao desejada: " << endl << endl;;
@@ -269,7 +323,7 @@ void menu(){
             	exportarTXTcontribuintes();
             	break;
             case 8:
-            	//conectar com a fincao
+            	exportarTXTcurso();
             	break;
             case 9:
             	mostrarContribuicao();
@@ -277,7 +331,7 @@ void menu(){
             case 0:
                 cout << "Programa finalizado" << endl;
                 break;
-            default://verificar por que numero nao vai e lebra trava
+            default://verificar por que numero nao vai e letra trava
                 cout << "Informe uma opção válida dentre as possibilidades" << endl;
                 break;
         }
@@ -287,8 +341,6 @@ void menu(){
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
-    
-    cout << "DEV Bruno Campagnol de Oliveira" << endl;
     
     menu();
     delete[] newAluno; //fazer teste depois para ver se esta limpa a memoria
