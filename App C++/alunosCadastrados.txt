@@ -1,3 +1,9 @@
 Lista de Alunos Cadastrados:
 .
 .
+ID: 24111
+Nome: bruno
+Semestre de Início: 1
+Ano de Início: 2018
+Curso: dsm
+____________________

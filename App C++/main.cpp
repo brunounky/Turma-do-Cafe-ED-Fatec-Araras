@@ -284,15 +284,17 @@ void exportarTXTcurso(){
         return;
     }
 
-    fprintf(outFile, "Lista de Contribuintes por curso: \n");
+    fprintf(outFile, "Lista de Contribuintes cadastrados por curso:\n");
+    fprintf(outFile, ".\n");
+    fprintf(outFile, ".\n");
     
     for (int i = 0; i < contContribuinte; ++i){
-        if (newContribuinte[i].id <= contAluno && newAluno[newContribuinte[i].id - 1].curso == curso){ //
+        if (curso == newAluno[i].curso){ 
             fprintf(outFile, "ID do Aluno: %d\n", newContribuinte[i].id);
             fprintf(outFile, "Mês: %d\n", newContribuinte[i].mes);
             fprintf(outFile, "Ano: %d\n", newContribuinte[i].ano);
             fprintf(outFile, "Valor: R$ %.2f\n", newContribuinte[i].valor);
-      		 fprintf(outFile, "____________________\n");
+      		fprintf(outFile, "____________________\n");
         }
     }
 

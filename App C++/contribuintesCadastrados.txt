@@ -1,6 +1,13 @@
 Lista de Contribuintes Cadastrados:
-ID do Aluno: 2
+.
+.
+ID do Aluno: 24111
 Mês: 2
 Ano: 2024
-Valor: R$ 222222,00
+Valor: R$ 33,00
+____________________
+ID do Aluno: 24111
+Mês: 5
+Ano: 2024
+Valor: R$ 55,00
 ____________________
