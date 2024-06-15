@@ -14,8 +14,18 @@ struct aluno { //dados aluno
     string curso;
 };
 
+struct contribuinte {
+    int id;
+    int mes;
+    int ano;
+    float valor;
+};
+
 aluno* newAluno = 0; // ponteiro 
 int contAluno = 0; // inicia o contador como zero
+
+contribuinte* newContribuinte = 0;
+int contContribuinte = 0;
 
 void cadastroAluno(){
 	
@@ -42,6 +52,74 @@ void cadastroAluno(){
 
 	cout << "!!Aluno novo foi cadastrado. Use novamente as opções do menu!!" << endl;
 }
+
+
+
+
+
+
+
+
+void cadastroContribuicao(){
+    if (contAluno == 0){
+        cout << "Nao há alunos cadastrados para poder inserir uma contribuiçao!!!" << endl;
+    }else{
+    	
+    	contribuinte* temp = new contribuinte[contContribuinte + 1]; // Array temporário
+    
+	    temp[contContribuinte].id = contContribuinte + 1;
+	    int id; //tentar usar o int id iguyal fiz pra editar
+	    
+	    cout << "Informe o ID do aluno para a contribuiçao: ";
+	    cin >> id;
+	    temp[contContribuinte].id = id;
+	    
+	    while (true) {
+	        cout << "Informe o número do mês da contribuição(1 a 12): ";
+	        cin >> temp[contContribuinte].mes;
+	        if (temp[contContribuinte].mes >= 1 && temp[contContribuinte].mes <= 12) {
+	            break; // Saindo do loop se o mês for válido
+	        } else {
+	            cout << "Mes invalido. Por favor, informe um mes entre 1 e 12" << endl;
+	        }
+	    }
+	    
+	    while (true) {
+	        cout << "Informe o ano da contribuição(igual ou maior que 2024): ";
+	        cin >> temp[contContribuinte].ano;
+	        if (temp[contContribuinte].ano >= 2024) {
+	            break; // Saindo do loop se o ano for válido
+	        } else {
+	            cout << "Ano invalido. Por favor, informe um ano igual ou maior que 2024" << endl;
+	        }
+	    }
+
+	    cout << "Informe o valor da contribuiçao: ";
+	    cin >> temp[contContribuinte].valor;
+	
+	    for (int i = 0; i < contContribuinte; ++i) {//passando para o array final
+	        temp[i] = newContribuinte[i];
+	    }
+	    
+		delete[] newContribuinte;
+    	newContribuinte = temp;
+    	contContribuinte++;
+    	
+    	cout << "!!Contribuicao cadastrada!!" << endl;
+    
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
 
 void editaAluno() {
     if (contAluno == 0) {
@@ -137,7 +215,7 @@ void menu(){
         cout << "2 - Editar dados de um contribuente já cadastrado" << endl;
         cout << "3 - Importar TXT com os dados dos alunos" << endl;
         cout << "4 - Exportar TXT com os dados dos alunos" << endl;
-        cout << "5 - Mostrar todos os alunos cadastrados" << endl << endl; // Opção adicionada para mostrar alunos
+        cout << "5 - Mostrar todos os alunos cadastrados" << endl << endl;
         cout << "________________ CONTRIBUENTES _______________" << endl;
         cout << "6 - Inserir uma nova comtribuição" << endl;
         cout << "7 - Exportar TXT com os dados dos contribuentes" << endl;
@@ -162,6 +240,9 @@ void menu(){
             case 5:
                 mostrarAlunos();
                 break;
+            case 6:
+            	cadastroContribuicao();
+            	break;
             case 0:
                 cout << "Programa finalizado" << endl;
                 break;
@@ -171,6 +252,8 @@ void menu(){
         }
 		
     } while (opMenu != 0);
+    
+    system("cls");
 }
 
 int main(){
