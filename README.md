@@ -14,7 +14,7 @@ O sistema foi implementado em C++, uma linguagem de programação amplamente uti
 Estrutura de dados refere-se à organização, gestão e armazenamento de dados de forma eficiente. No projeto, utilizamos estruturas como arrays dinâmicos para armazenar e manipular informações de alunos e contribuições de maneira organizada.
 
 ### Lista ordenada
-O sistema mantém uma lista ordenada de alunos cadastrados na Fatec Araras, registrando detalhes como nome, semestre de início, ano de início e curso. Esses dados são armazenados em arrays dinâmicos, permitindo operações de inserção, exclusão e consulta.
+O sistema mantém uma lista ordenada de alunos cadastrados na Fatec Araras, registrando detalhes como nome, semestre de início, ano de início e curso. Esses dados são armazenados em arrays dinâmicos, permitindo operações de inserção, edição e consulta.
 
 ### Considerações finais
 Este projeto não apenas aplica conceitos fundamentais de estrutura de dados, mas também exemplifica a importância da organização e eficiência na manipulação de informações. As funcionalidades implementadas, como cadastro de alunos, controle de contribuições e exportação/importação de dados em formato TXT, destacam a aplicação prática desses conceitos no desenvolvimento de sistemas robustos e escaláveis.
