@@ -140,7 +140,6 @@ void editaAluno() {
 	
     if (contAluno == 0) {
         cout << "Nao há alunos cadastrados" << endl;
-        return;
     }
 
     int id;
