@@ -1,5 +1,6 @@
 #include <iostream>
 #include <locale>
+#include <cstring>
 #include <stdio.h>
 
 using namespace std;
@@ -101,6 +102,7 @@ void cadastroContribuicao(){
 	        cout << "Informe o número do mês da contribuição(1 a 12): ";
 	        cin >> temp[contContribuinte].mes;
 	        if (temp[contContribuinte].mes >= 1 && temp[contContribuinte].mes <= 12){
+	        	break;
 	        } else {
 	            cout << "Mes invalido. Por favor, informe um mes entre 1 e 12" << endl;
 	        }
@@ -110,6 +112,7 @@ void cadastroContribuicao(){
 	        cout << "Informe o ano da contribuição(igual ou maior que 2024): ";
 	        cin >> temp[contContribuinte].ano;
 	        if (temp[contContribuinte].ano >= 2024){
+	        	break;
 	        } else {
 	            cout << "Ano invalido. Por favor, informe um ano igual ou maior que 2024" << endl;
 	        }
@@ -201,7 +204,7 @@ void mostrarContribuicao(){
     cout << "______ Lista de Contribuicoes ______" << endl;
     
     for (int i = 0; i < contContribuinte; ++i) {
-        cout << "ID do Aluno: " << newContribuinte[i].id << endl;
+        cout << endl << "ID do Aluno: " << newContribuinte[i].id << endl;
         cout << "Mes: " << newContribuinte[i].mes << endl;
         cout << "Ano: " << newContribuinte[i].ano << endl;
         cout << "Valor: R$ " << newContribuinte[i].valor << endl;
